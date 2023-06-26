@@ -1,6 +1,5 @@
 interface RequestService
 {
     void create();
-    void read();
-    void update();
+    List<Request> read();
 }

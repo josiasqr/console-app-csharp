@@ -2,13 +2,15 @@ public class Menu
 {
     public static void showMenu()
     {
-        Console.WriteLine("--------------------------------------------------------");
-        Console.WriteLine("-- SDCT | SISTEMA DE DISTRIBUCIÓN DE CARGA DE TRABAJO --");
-        Console.WriteLine("--------------------------------------------------------");
-        Console.WriteLine("1. Registrar solicitud de atención.");
-        Console.WriteLine("2. Ordenar registros de atención.");
-        Console.WriteLine("3. Optimizar atenciones (algoritmo de la mochila).");
-        Console.WriteLine("4. Buscar solicitud de atención.");
+        Console.WriteLine("--------------------------------------------------");
+        Console.WriteLine("-- SROD | SISTEMA DE RUTAS ÓPTIMAS DIJKSTRA     --");
+        Console.WriteLine("--------------------------------------------------");
+        Console.WriteLine("1. Insertar Nodos-Aristas en el archivo.");
+        Console.WriteLine("2. Buscar si existe un nodo en el archivo.");
+        Console.WriteLine("3. Buscar un Nodo en el archivo.");
+        Console.WriteLine("4. Listar datos ordenados Ascendente por su distancia.");
+        Console.WriteLine("5. Listar datos ordenados Descendente por su distancia.");
+        Console.WriteLine("6. Aplicar algoritmo Dijkstra.");
         Console.WriteLine("0. Salir");
         Console.WriteLine("");
     }

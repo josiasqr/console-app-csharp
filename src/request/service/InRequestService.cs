@@ -6,41 +6,24 @@ class InRequestService : RequestService
 
     public void create()
     {
-        Console.WriteLine("-- REGISTRO DE SOLICITUD");
+        Console.WriteLine("-- REGISTRO DE NODOS-ARISTAS");
         Console.WriteLine("------------------------");
-        Console.WriteLine("Cuantas solicitudes desea registrar?");
-        Console.Write("Cantidad: ");
-        int cantitad = Convert.ToInt32(Console.ReadLine());
+        Request request = new Request();
 
-        for (int i = 0; i < cantitad; i++)
-        {
-            Console.WriteLine("");
-            Console.WriteLine($"- Registro N{i + 1}: ");
+        Console.Write("Origin: ");
+        request.Origin = Console.ReadLine();
 
-            Request request = new Request();
-            request.Id = request.generateId();
+        Console.Write("Destination: ");
+        request.Destination = Console.ReadLine();
 
-            Console.Write("Orden: ");
-            request.Order = Console.ReadLine();
+        Console.Write("Distance: ");
+        request.Distance = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Solicitante: ");
-            request.Applicant = Console.ReadLine();
-
-            Console.Write("Falla: ");
-            request.Failure = Console.ReadLine();
-
-            Console.Write("Descripcion: ");
-            request.Description = Console.ReadLine();
-
-            Console.Write("Costo: ");
-            request.Cost = Convert.ToDouble(Console.ReadLine());
-
-            // Envia a registrar en archivo el 'request' generado
-            newRequest(request.dataInFIle());
-        }
+        // Envia a registrar en archivo el 'request' generado
+        newRequest(request.dataInFIle());
     }
 
-    public void read()
+    public List<Request> read()
     {
         string separator = SEPARATOR;
         string line;
@@ -52,9 +35,8 @@ class InRequestService : RequestService
             StreamReader sr = new StreamReader(FILE);
             sr.ReadLine();
 
-            // Imprime cabecera
-            Console.WriteLine("-- LISTA DE SOLICITUDES");
-            Console.WriteLine(Request.printHeader());
+            // Se crea la lista de request que va a devolver
+            List<Request> listRequest = new List<Request>();
 
             // Lee la siguiente fila del archivo
             while ((line = sr.ReadLine()) != null)
@@ -64,29 +46,23 @@ class InRequestService : RequestService
 
                 // Crea un objeto Request.cs de los datos separados por fila
                 Request request = new Request();
-                request.Id = row[0];
-                request.Order = row[1];
-                request.Applicant = row[2];
-                request.Failure = row[3];
-                request.Description = row[4];
-                request.Cost = Convert.ToDouble(row[5]);
+                request.Origin = row[0];
+                request.Destination = row[1];
+                request.Distance = Convert.ToDouble(row[2]);
 
-                // Imprime los registros del archivo
-                Console.WriteLine(request.ToString());
+                // Agrega el request a la lista
+                listRequest.Add(request);
             }
-
             // Cierra el archivo
             sr.Close();
+
+            return listRequest;
         }
         catch (IOException ex)
         {
             Console.WriteLine(ex);
+            return new List<Request>();
         }
-    }
-
-    public void update()
-    {
-
     }
 
     void newRequest(string request)
