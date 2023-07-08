@@ -12,4 +12,5 @@ Ubicate en la carpeta raiz.
 dotnet run
 ```
 ### Fin
-Listo ya puedes hacer uso de la aplicación.   
+Listo ya puedes hacer uso de la aplicación.
+![Descripción de la imagen](src/resources/Dijkstra.jpeg)
