@@ -2,9 +2,9 @@ public class Menu
 {
     public static void showMenu()
     {
-        Console.WriteLine("--------------------------------------------------");
-        Console.WriteLine("-- SROD | SISTEMA DE RUTAS ÓPTIMAS DIJKSTRA     --");
-        Console.WriteLine("--------------------------------------------------");
+        Console.WriteLine("-----------------------------------------------------------");
+        Console.WriteLine("-- EXAMEN FINAL | SISTEMA DE RUTAS ÓPTIMAS DIJKSTRA v1.0 --");
+        Console.WriteLine("-----------------------------------------------------------");
         Console.WriteLine("1. Insertar Nodos-Aristas en el archivo.");
         Console.WriteLine("2. Buscar si existe un nodo en el archivo.");
         Console.WriteLine("3. Buscar un Nodo en el archivo.");

@@ -1,5 +1,7 @@
 ﻿class Program
 {
+    private static string HEADER_REGEX_RESULT = "{0,-100} {1,-20}";
+
     public static void Main(string[] args)
     {
         bool end = false;
@@ -20,7 +22,9 @@
         switch (option)
         {
             case "1":
-                // 1.Insertar Nodos - Aristas en el archivo.
+                /*
+                1. Insertar Nodos - Aristas en el archivo.
+                */
                 requestService.create();
 
                 Console.WriteLine("");
@@ -29,7 +33,9 @@
                 break;
 
             case "2":
-                // 2. Buscar si existe un nodo en el archivo.
+                /*
+                2. Buscar si existe un nodo en el archivo.
+                */
                 List<string> listString = new List<string>();
 
                 foreach (Request request in requestService.read())
@@ -53,7 +59,7 @@
                 else
                 {
                     Console.WriteLine("");
-                    Console.WriteLine($"NOT-FOUND: Producto [{search}] no encontrado.");
+                    Console.WriteLine($"NOT-FOUND: El Nodo [{search}] no encontrado.");
                 }
 
 
@@ -63,7 +69,9 @@
                 break;
 
             case "3":
-                // 3. Buscar un Nodo en el archivo.
+                /*
+                3. Buscar un Nodo en el archivo.
+                */
 
                 // Ingresando valor a buscar
                 Console.Write("Ingrese Nodo a buscar: ");
@@ -78,7 +86,9 @@
                 break;
 
             case "4":
-                // 4. Listar datos ordenados Ascendente por su distancia.
+                /*
+                4. Listar datos ordenados Ascendente por su distancia.
+                */
 
                 // Imprime cabecera
                 Console.WriteLine("-- LISTA DE DATOS ORDENADOS ASCENDENTE");
@@ -96,7 +106,9 @@
                 break;
 
             case "5":
-                // 5. Listar datos ordenados Descendente por su distancia.
+                /*
+                5. Listar datos ordenados Descendente por su distancia.
+                */
 
                 // Imprime cabecera
                 Console.WriteLine("-- LISTA DE DATOS ORDENADOS DESCENDENTE");
@@ -114,34 +126,34 @@
                 break;
 
             case "6":
-                // 6. Aplicar algoritmo Dijkstra.
+                /*
+                6. Aplicar algoritmo Dijkstra.
+                */
 
                 DijkstraAlgorithm dijkstra = new DijkstraAlgorithm();
 
+                // Agrega los datos al Dictionary
                 foreach (Request request in requestService.read())
                 {
                     dijkstra.AddEdge(request.Origin, request.Destination, request.Distance);
                 }
 
-                string source = "Stuttgart";
-                string destination = "Hanover";
+                // Solicita al usuario ingresar el [ORIGEN][DESTINO]
+                Console.WriteLine("Ingrese [ORIGEN] [DESTINO]");
+                Console.WriteLine("-----------------------------------------------");
+                Console.Write("Origen: ");
+                string source = Console.ReadLine();
+                Console.Write("Destino: ");
+                string destination = Console.ReadLine();
+                //string source = "Stuttgart";
+                //string destination = "Hanover";
 
                 List<List<string>> paths = dijkstra.FindAllPaths(source, destination);
 
-                Console.WriteLine("Rutas posibles desde el nodo " + source + " hasta el nodo " + destination + ":");
-                if (paths.Count > 0)
-                {
-                    foreach (var path in paths)
-                    {
-                        double distance = dijkstra.CalculateDistance(path);
-                        Console.WriteLine(string.Join(" -> ", path) + " (Distancia: " + distance + Constants.SPACE + Constants.UNITS_OF_LENGHT + ")");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No hay rutas disponibles.");
-                }
-
+                // Imprime el inicio del resultado
+                printFirst(source, destination);
+                // Imprime el final del resultado
+                printSecond(paths, dijkstra);
 
                 Console.WriteLine("");
                 Console.WriteLine("INFO: Presiona 'ENTER' para volver a mostrar el menú.");
@@ -162,5 +174,44 @@
         }
 
         return end;
+    }
+
+    // Imprime el inicio del resultado
+    private static void printFirst(string source, string destination)
+    {
+        Console.WriteLine();
+        Console.WriteLine("INFO: Posibles rutas desde el nodo [" + source + "] hasta el nodo [" + destination + "]:");
+        Console.WriteLine("");
+
+        Console.WriteLine(string.Format(HEADER_REGEX_RESULT, "ROUTE", "DISTANCE"));
+        Console.Write("------------------------------------------------------------");
+        Console.Write("----------------------------------------");
+        Console.WriteLine("--------------------");
+    }
+
+    // Imprime el final del resultado
+    private static void printSecond(List<List<string>> paths, DijkstraAlgorithm dijkstra)
+    {
+        if (paths.Count > 0)
+        {
+            foreach (var path in paths)
+            {
+                double distance = dijkstra.CalculateDistance(path);
+
+                Console.WriteLine(string.Format(HEADER_REGEX_RESULT,
+                String.Join(" -> ", path),
+                distance + Constants.SPACE + Constants.UNITS_OF_LENGHT));
+
+                // Exporta en un archivo
+                Result.createResult(string.Join(" -> ", path) + "," + distance);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine($"INFO: Los resultados fueron exportados en [{Directory.GetCurrentDirectory() + Constants.PATH + "result.csv"}]");
+        }
+        else
+        {
+            Console.WriteLine("No hay rutas disponibles.");
+        }
     }
 }

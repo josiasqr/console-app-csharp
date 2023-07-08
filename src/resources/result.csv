@@ -1,0 +1,37 @@
+ROUTE,DISTANCE
+Stuttgart -> Berlin -> Bremen -> Dortmund -> Bonn -> Hanover,140
+Stuttgart -> Berlin -> Bremen -> Leipzig -> Hanover,90
+Stuttgart -> Berlin -> Bremen -> Bonn -> Hanover,90
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Dortmund -> Bonn -> Hanover,240
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Bonn -> Hanover,190
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Hanover,110
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,170
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Leipzig -> Hanover,130
+Stuttgart -> Dortmund -> Bonn -> Hanover,90
+Stuttgart -> Dortmund -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,120
+Stuttgart -> Dortmund -> Bremen -> Leipzig -> Hanover,80
+Stuttgart -> Dortmund -> Bremen -> Bonn -> Hanover,80
+Stuttgart -> Berlin -> Bremen -> Dortmund -> Bonn -> Hanover,140
+Stuttgart -> Berlin -> Bremen -> Leipzig -> Hanover,90
+Stuttgart -> Berlin -> Bremen -> Bonn -> Hanover,90
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Dortmund -> Bonn -> Hanover,240
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Bonn -> Hanover,190
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Hanover,110
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,170
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Leipzig -> Hanover,130
+Stuttgart -> Dortmund -> Bonn -> Hanover,90
+Stuttgart -> Dortmund -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,120
+Stuttgart -> Dortmund -> Bremen -> Leipzig -> Hanover,80
+Stuttgart -> Dortmund -> Bremen -> Bonn -> Hanover,80
+Stuttgart -> Berlin -> Bremen -> Dortmund -> Bonn -> Hanover,140
+Stuttgart -> Berlin -> Bremen -> Leipzig -> Hanover,90
+Stuttgart -> Berlin -> Bremen -> Bonn -> Hanover,90
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Dortmund -> Bonn -> Hanover,240
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Bremen -> Bonn -> Hanover,190
+Stuttgart -> Berlin -> Bochum -> Leipzig -> Hanover,110
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,170
+Stuttgart -> Dortmund -> Bonn -> Bremen -> Leipzig -> Hanover,130
+Stuttgart -> Dortmund -> Bonn -> Hanover,90
+Stuttgart -> Dortmund -> Bremen -> Berlin -> Bochum -> Leipzig -> Hanover,120
+Stuttgart -> Dortmund -> Bremen -> Leipzig -> Hanover,80
+Stuttgart -> Dortmund -> Bremen -> Bonn -> Hanover,80

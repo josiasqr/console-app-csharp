@@ -21,6 +21,7 @@ class SearchNode
         }
     }
 
+    // Busqueda Sequencial del nodo tanto en [ORIGEN] [DESTINO]
     private static List<Request> find(List<Request> listRequest, string value)
     {
         List<Request> newRequest = new List<Request>();
